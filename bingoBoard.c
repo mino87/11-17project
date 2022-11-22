@@ -21,29 +21,13 @@ void bingo_init(void)
 	int i, j;
 	int cnt =1;
 	
-	for(i=0;i< N_SIZE;i++)
-	{
-	
-	   for(j=0;j< N_SIZE;j++)
-	   {    if(cnt==15)
-	        {
-	   	        bingoBoard[i][j] = BINGONUM_HOLE;
-	   	        numberStatus[cnt-1] =BINGONUM_HOLE;
-	   	        
-	   	        cnt++;	   	    
-	       }
-	       
-	   	   else
-			{
-				numberStatus[5] = i*N_SIZE +j;
-				bingoBoard[i][j] = cnt++;
-	   	   	
-			}
-			  
-			  
-	   }
-		
-    }
+    for(i=0;i<N_SIZE;i++)
+        for(j=0;j<N_SIZE;j++)
+        {
+        	bingoBoard[i][j] = cnt;
+        	numberStatus[cnt-1]=N_SIZE*i+j;
+        	cnt++;
+		}
 }
 
 
